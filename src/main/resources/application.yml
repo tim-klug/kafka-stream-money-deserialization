@@ -37,7 +37,5 @@ spring.cloud.stream:
     processorIn:
       destination: Event-In
       group: processingEventGroup
-      consumer.useNativeDecoding: true
     processorOut:
       destination: Event-Out
-      producer.useNativeDecoding: true
