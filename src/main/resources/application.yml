@@ -3,7 +3,6 @@ kafka.url: kafka:9092
 
 spring.kafka:
   bootstrap-servers: ${kafka.url}
-  service-url: isas
 
 spring:
   messages:
