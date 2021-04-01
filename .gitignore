@@ -1,0 +1,32 @@
+target/
+!.mvn/wrapper/maven-wrapper.jar
+**/application-local.properties
+pom.xml.versionsBackup
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+/src/main/resources/application-dev.yml
+
+### Maven plugins ###
+.flattened-pom.xml
+/google-code-style.xml
