@@ -1,0 +1,43 @@
+
+kafka.url: kafka:9092
+
+spring.kafka:
+  bootstrap-servers: ${kafka.url}
+  service-url: isas
+
+spring:
+  messages:
+    fallback-to-system-locale: false
+
+spring.cloud.stream.kafka.streams:
+  binder:
+    brokers: ${kafka.url}
+    configuration:
+      commit.interval.ms: 30000
+      default:
+        key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+        value.serde: org.springframework.kafka.support.serializer.JsonSerde
+  bindings:
+    processorIn:
+      consumer:
+        applicationId: processorInApplication
+        valueSerde: com.example.demo.serde.CustomJsonSerde
+    processorOut:
+      producer:
+        valueSerde: com.example.demo.serde.CustomJsonSerde
+
+spring.cloud.stream:
+  default:
+    contentType: application/json
+    consumer:
+      headerMode: none
+    producer:
+      headerMode: none
+  bindings:
+    processorIn:
+      destination: Event-In
+      group: processingEventGroup
+      consumer.useNativeDecoding: true
+    processorOut:
+      destination: Event-Out
+      producer.useNativeDecoding: true
